@@ -7,6 +7,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CRUD.NET;
 using CRUD.NET.Controllers;
 
+namespace Operaciones.Tests
+{
+    [TestClass()]
+    public class HomeControllerTest
+    {
+        [TestMethod()]
+        public void EditTest()
+        {
+            Assert.Fail();
+        }
+    }
+}
+
 namespace CRUD.NET.Tests.Controllers
 {
     [TestClass]

@@ -1,0 +1,50 @@
+﻿@model CRUD.NET.Models.Operacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Operacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.operacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.segundo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.segundo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resultado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resultado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
