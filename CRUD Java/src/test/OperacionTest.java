@@ -27,6 +27,21 @@ public class OperacionTest {
   }	
 	
 	@Test
+	public void registroConOperacionInvalida() {
+	  try {
+		 String jdbcURL = "jdbc:mysql://localhost:3306/matematica?user=root&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		 String jdbcUsername = "root";
+		 String jdbcPassword = "";
+		 System.out.println("Metodo insertar"); 		  
+		 operacionDAO = new OperacionDAO(jdbcURL, jdbcUsername, jdbcPassword);		 ;		 
+		  Assert.assertFalse(operacionDAO.insertar(2,"suma1",2,4));
+	  }	  catch (Exception e){
+		  e.printStackTrace();
+		  Assert.fail("Fallo la prueba:" + e.getMessage());
+	  }
+  }	
+	
+	@Test
 	public void actualizarExitoso() {
 	  try {
 		 String jdbcURL = "jdbc:mysql://localhost:3306/matematica?user=root&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

@@ -38,24 +38,26 @@ namespace CRUD.NET.Controllers
         // GET: Operaciones/Create
         public ActionResult Create()
         {
-            return View();
+            Operacion operacion = new Operacion();
+            return View(operacion);
         }
 
         // POST: Operaciones/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,operacion,primero,segundo,resultado")] Operacion operacion)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(Operacion model)
         {
             if (ModelState.IsValid)
             {
-                db.Operacions.Add(operacion);
+                db.Operacions.Add(model);
                 db.SaveChanges();
+                ViewBag.Validacion = true;
                 return RedirectToAction("Index");
             }
 
-            return View(operacion);
+            return RedirectToAction("Index");
         }
 
         // GET: Operaciones/Edit/5
@@ -77,7 +79,7 @@ namespace CRUD.NET.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,operacion,primero,segundo,resultado")] Operacion operacion)
         {
             if (ModelState.IsValid)
@@ -106,7 +108,7 @@ namespace CRUD.NET.Controllers
 
         // POST: Operaciones/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Operacion operacion = db.Operacions.Find(id);

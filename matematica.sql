@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `matematica` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `matematica`;
+CREATE DATABASE matematica /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE matematica;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: matematica
@@ -21,29 +21,24 @@ USE `matematica`;
 -- Table structure for table `operaciones`
 --
 
-DROP TABLE IF EXISTS `operaciones`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `operaciones` (
-  `id` int(11) NOT NULL,
-  `operacion` varchar(45) DEFAULT NULL,
-  `primero` float DEFAULT NULL,
-  `segundo` float DEFAULT NULL,
-  `resultado` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE operaciones (
+  id int NOT NULL,
+  operacion varchar(45) DEFAULT NULL,
+  primero float DEFAULT NULL,
+  segundo float DEFAULT NULL,
+  resultado float DEFAULT NULL,
+  PRIMARY KEY (id)
+)  
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `operaciones`
 --
 
-LOCK TABLES `operaciones` WRITE;
-/*!40000 ALTER TABLE `operaciones` DISABLE KEYS */;
-INSERT INTO `operaciones` VALUES (1,'division',8,8,1);
-/*!40000 ALTER TABLE `operaciones` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO operaciones VALUES (1,'division',8,8,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

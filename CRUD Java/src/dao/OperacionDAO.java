@@ -18,6 +18,26 @@ public class OperacionDAO {
 	public OperacionDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException {
 		con = new Conexion(jdbcURL, jdbcUsername, jdbcPassword);
 	}
+	public boolean ValidacionLetras(String cad) {
+		boolean num = false;
+		boolean str = false;
+		boolean ex = false;
+		for(int i = 0;i<cad.length();i++) {
+			if(Character.isDigit(cad.charAt(i)) == true) {
+				num = true;
+			}else if (Character.isLetter(cad.charAt(i)) == true){
+				str = true;
+			}else { 
+				ex = true;
+			}
+			
+		}		
+		if (num == false && str == true && ex == false) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	float operar(float a,float b,String operacion) {
 		switch(operacion) {
@@ -36,7 +56,8 @@ public class OperacionDAO {
 	
 	public boolean insertar(int id,String operacion,float primero,float segundo) throws SQLException {		
 		boolean registrar = false;		
-		String sql = "INSERT INTO operaciones values ('"+id+"','"+operacion+"','"+primero+"','"+segundo+"','"+operar(primero,segundo,operacion)+"')";
+		if (ValidacionLetras(operacion)) {
+			String sql = "INSERT INTO operaciones values ('"+id+"','"+operacion+"','"+primero+"','"+segundo+"','"+operar(primero,segundo,operacion)+"')";
 		try {
 			con.conectar();
 			connection = con.getJdbcConnection();
@@ -50,6 +71,10 @@ public class OperacionDAO {
 				e.printStackTrace();
 			}
 		return registrar;
+		}else {
+			return registrar;
+		}
+		
 		
 	}
 	public List<Operacion> listarOperaciones() throws SQLException {

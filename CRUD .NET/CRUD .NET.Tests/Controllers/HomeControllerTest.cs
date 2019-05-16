@@ -6,19 +6,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CRUD.NET;
 using CRUD.NET.Controllers;
+using CRUD.NET.Models;
 
-namespace Operaciones.Tests
-{
-    [TestClass()]
-    public class HomeControllerTest
-    {
-        [TestMethod()]
-        public void EditTest()
-        {
-            Assert.Fail();
-        }
-    }
-}
+
 
 namespace CRUD.NET.Tests.Controllers
 {
@@ -28,12 +18,13 @@ namespace CRUD.NET.Tests.Controllers
         [TestMethod]
         public void Index()
         {
-            // Arrange
-            HomeController controller = new HomeController();
+            // Arrangelopera
+            OperacionesController controller = new OperacionesController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
-
+            Operacion model = new Operacion();
+            RedirectToRouteResult result = controller.Create(model) as RedirectToRouteResult;
+            var variable = result;
             // Assert
             Assert.IsNotNull(result);
         }

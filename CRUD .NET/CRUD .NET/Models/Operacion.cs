@@ -18,9 +18,5 @@ namespace CRUD.NET.Models
         public float segundo { get; set; }
 
         public float resultado { get; set; }
-
-
-
-
     }
 }
